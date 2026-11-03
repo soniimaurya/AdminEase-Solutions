@@ -4,7 +4,7 @@
 
 AdminEase Solutions is a Python-based business automation project developed to streamline lead management, workflow automation, LinkedIn relationship management, and CRM operations.
 
-The project is organized into three independent modules, each addressing a specific business requirement.
+The project consists of three independently developed modules, each addressing a specific business requirement.
 
 ## Project Modules
 
@@ -50,7 +50,7 @@ The project is organized into three independent modules, each addressing a speci
 
 **Technology Stack:** Python, Pandas, OpenPyXL, Microsoft Excel.
 
-**Deliverables:** Python script, Excel dashboard, and outreach framework PDF.
+**Deliverables:** Python automation script, Excel dashboard, and outreach framework PDF.
 
 ## Module 3: CRM Automation
 
@@ -79,6 +79,7 @@ The project is organized into three independently developed modules. They are no
 AdminEase-Solutions/
 │
 ├── Project_Gaurav/
+│   │
 │   ├── Module_1_Workflow_Automation/
 │   │   └── Project_Gaurav_Module_1/
 │   │       ├── app/
@@ -119,13 +120,13 @@ AdminEase-Solutions/
 
 ## Testing Summary
 
-| Module   | Automated Tests |
-| -------- | --------------: |
-| Module 1 |        4 passed |
-| Module 3 |        6 passed |
-| Total    |       10 passed |
+| Module    | Automated Tests |
+| --------- | --------------: |
+| Module 1  |        4 passed |
+| Module 3  |        6 passed |
+| **Total** |   **10 passed** |
 
-Module 2 includes the outreach documentation, Python automation script, and Excel dashboard deliverables.
+Module 2 includes outreach documentation, a Python automation script, and an Excel dashboard.
 
 ## Project Objective
 
@@ -136,4 +137,4 @@ The objective is to develop a modular business automation platform that improves
 **Soni Maurya**
 B.Tech – Computer Science and Engineering (AI & ML)
 
-GitHub: https://github.com/soniimaurya
+**GitHub:** https://github.com/soniimaurya
