@@ -1,13 +1,28 @@
 import sqlite3
 from pathlib import Path
+from contextlib import contextmanager
 
 DB_PATH = Path(__file__).resolve().parent.parent / "data" / "leads.db"
 
+
+@contextmanager
 def get_connection():
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
-    return conn
+
+    try:
+        yield conn
+        conn.commit()
+
+    except Exception:
+        conn.rollback()
+        raise
+
+    finally:
+        conn.close()
+
 
 def initialize_database():
     with get_connection() as conn:
@@ -24,7 +39,7 @@ def initialize_database():
                 received_at TEXT NOT NULL
             )
         """)
-        conn.commit()
+
 
 def insert_lead(lead: dict):
     with get_connection() as conn:
@@ -33,20 +48,34 @@ def insert_lead(lead: dict):
             (name, email, phone, company, requirement, category, status, received_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            lead["name"], lead["email"], lead["phone"], lead["company"],
-            lead["requirement"], lead["category"], lead["status"], lead["received_at"]
+            lead["name"],
+            lead["email"],
+            lead["phone"],
+            lead["company"],
+            lead["requirement"],
+            lead["category"],
+            lead["status"],
+            lead["received_at"]
         ))
-        conn.commit()
+
         return cursor.lastrowid
+
 
 def fetch_leads(limit: int = 100):
     with get_connection() as conn:
         rows = conn.execute(
-            "SELECT * FROM leads ORDER BY id DESC LIMIT ?", (limit,)
+            "SELECT * FROM leads ORDER BY id DESC LIMIT ?",
+            (limit,)
         ).fetchall()
+
         return [dict(row) for row in rows]
+
 
 def email_exists(email: str) -> bool:
     with get_connection() as conn:
-        row = conn.execute("SELECT 1 FROM leads WHERE email = ?", (email,)).fetchone()
+        row = conn.execute(
+            "SELECT 1 FROM leads WHERE email = ?",
+            (email,)
+        ).fetchone()
+
         return row is not None
