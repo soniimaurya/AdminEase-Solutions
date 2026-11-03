@@ -1,18 +1,79 @@
-# Project Gaurav – Multi-Module Business Automation & CRM System
+# AdminEase Solutions
 
-A multi-module business automation project developed as part of the Project Gaurav pilot at AdminEase Solutions.
+### Project Gaurav – Multi-Module Business Automation & CRM System
 
-The project focuses on workflow automation, LinkedIn relationship management, lead tracking, and CRM automation using Python, FastAPI, REST APIs, SQL databases, and Excel dashboards.
+AdminEase Solutions is a Python-based business automation project developed to streamline lead management, workflow automation, LinkedIn relationship management, and CRM operations.
+
+The project consists of three independently developed modules, each addressing a specific business requirement.
 
 ## Project Modules
 
-| Module   | Name                             | Description                                                                                               |
-| -------- | -------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Module 1 | Workflow Automation              | Backend workflow automation, API integration, webhook handling, and JSON processing.                      |
-| Module 2 | LinkedIn Relationship Management | B2B outreach framework, prospect tracking, engagement management, and Excel dashboard.                    |
-| Module 3 | CRM Automation                   | Lead management APIs, follow-up tracking, interaction history, dashboard metrics, and API authentication. |
+| Module   | Description                                                | Status                         |
+| -------- | ---------------------------------------------------------- | ------------------------------ |
+| Module 1 | Workflow Automation & Backend API                          | Completed and tested           |
+| Module 2 | LinkedIn Relationship Management & Lead Tracking Dashboard | Initial deliverables completed |
+| Module 3 | CRM Automation & Lead Management                           | Completed and tested           |
 
-## Project Structure
+## Module 1: Workflow Automation
+
+**Objective:** Automate lead processing through backend APIs and database operations.
+
+### Key Features
+
+* FastAPI-based backend.
+* Webhook-based lead processing.
+* JSON data validation.
+* Lead categorization and processing.
+* Duplicate email detection.
+* SQLite database management.
+* API key authentication.
+* Error handling and logging.
+
+**Technology Stack:** Python, FastAPI, SQLite, Pydantic, Pytest.
+
+**Testing:** 4 automated tests passed.
+
+## Module 2: LinkedIn Relationship Management
+
+**Objective:** Create a structured B2B outreach and prospect-tracking framework.
+
+### Key Deliverables
+
+* Three-step LinkedIn outreach sequence.
+* Daily prospect engagement plan.
+* Prospect tracking framework.
+* Lead status monitoring.
+* Follow-up tracking.
+* Automated KPI calculations.
+* Excel-based lead tracking dashboard.
+* Python dashboard automation script.
+
+**Technology Stack:** Python, Pandas, OpenPyXL, Microsoft Excel.
+
+**Deliverables:** Python automation script, Excel dashboard, and outreach framework PDF.
+
+## Module 3: CRM Automation
+
+**Objective:** Develop a CRM backend for managing leads, follow-ups, interactions, and business performance.
+
+### Key Features
+
+* FastAPI-based CRM backend.
+* Lead creation and management.
+* Retrieve, update, and delete lead records.
+* Follow-up management.
+* Interaction history.
+* Dashboard summary and lead statistics.
+* API key authentication.
+* SQLite database integration.
+
+**Technology Stack:** Python, FastAPI, SQLAlchemy, SQLite, Pydantic, Pytest, HTTPX.
+
+**Testing:** 6 automated tests passed.
+
+## Project Architecture
+
+The project is organized into three independently developed modules. They are not represented as a fully integrated production deployment.
 
 ```text
 AdminEase-Solutions/
@@ -20,175 +81,60 @@ AdminEase-Solutions/
 ├── Project_Gaurav/
 │   │
 │   ├── Module_1_Workflow_Automation/
+│   │   └── Project_Gaurav_Module_1/
+│   │       ├── app/
+│   │       ├── tests/
+│   │       ├── data/
+│   │       ├── logs/
+│   │       └── README.md
 │   │
 │   ├── Module_2_LinkedIn_Outreach/
+│   │   ├── Python Automation Script
+│   │   ├── Excel Dashboard
+│   │   ├── Outreach Framework PDF
+│   │   └── README.md
 │   │
 │   └── Module_3_CRM_Automation/
 │       ├── app/
-│       │   ├── __init__.py
-│       │   ├── database.py
-│       │   ├── main.py
-│       │   ├── models.py
-│       │   └── schemas.py
-│       │
 │       ├── tests/
-│       │   └── test_crm.py
-│       │
-│       ├── .gitignore
-│       ├── README.md
-│       └── requirements.txt
+│       ├── requirements.txt
+│       └── README.md
 │
+├── .gitignore
 └── README.md
 ```
 
-## Module 1 – Workflow Automation
+## Overall Technology Stack
 
-Focus areas:
+| Category             | Technologies   |
+| -------------------- | -------------- |
+| Programming Language | Python         |
+| Backend Development  | FastAPI        |
+| Database             | SQLite         |
+| ORM                  | SQLAlchemy     |
+| Data Validation      | Pydantic       |
+| Data Processing      | Pandas         |
+| Excel Automation     | OpenPyXL       |
+| Testing              | Pytest, HTTPX  |
+| Version Control      | Git and GitHub |
 
-* Python backend automation.
-* REST API development and integration.
-* Webhook-based data processing.
-* JSON parsing and validation.
-* Automated workflow processing.
+## Testing Summary
 
-## Module 2 – LinkedIn Relationship Management
+| Module    | Automated Tests |
+| --------- | --------------: |
+| Module 1  |        4 passed |
+| Module 3  |        6 passed |
+| **Total** |   **10 passed** |
 
-Focus areas:
+Module 2 includes outreach documentation, a Python automation script, and an Excel dashboard.
 
-* B2B prospect identification and tracking.
-* LinkedIn outreach sequence planning.
-* Prospect categorization and engagement tracking.
-* Daily outreach activity planning.
-* Performance measurement and KPI tracking.
-* Excel-based automated lead tracking dashboard.
+## Project Objective
 
-Deliverables include an outreach framework document and an Excel dashboard.
+The objective is to develop a modular business automation platform that improves lead management, reduces repetitive administrative work, supports structured B2B outreach, and provides better visibility into CRM operations.
 
-## Module 3 – CRM Automation
-
-A FastAPI-based CRM backend designed to manage leads, follow-ups, and customer interactions.
-
-### Implemented Features
-
-* Create, view, update, and delete leads.
-* Search and filter leads.
-* Manage lead statuses.
-* Schedule and update follow-ups.
-* Maintain lead interaction history.
-* View CRM dashboard summary.
-* API key-based authentication.
-* SQLAlchemy database integration.
-* Automated API testing using Pytest.
-
-### API Endpoints
-
-| Method | Endpoint                            | Purpose                 |
-| ------ | ----------------------------------- | ----------------------- |
-| GET    | `/`                                 | Application information |
-| GET    | `/health`                           | Health check            |
-| POST   | `/api/leads`                        | Create a lead           |
-| GET    | `/api/leads`                        | List and filter leads   |
-| GET    | `/api/leads/{lead_id}`              | Get lead details        |
-| PATCH  | `/api/leads/{lead_id}`              | Update a lead           |
-| DELETE | `/api/leads/{lead_id}`              | Delete a lead           |
-| POST   | `/api/leads/{lead_id}/follow-ups`   | Create a follow-up      |
-| GET    | `/api/follow-ups`                   | View follow-ups         |
-| PATCH  | `/api/follow-ups/{follow_up_id}`    | Update a follow-up      |
-| POST   | `/api/leads/{lead_id}/interactions` | Add an interaction      |
-| GET    | `/api/leads/{lead_id}/interactions` | View lead interactions  |
-| GET    | `/api/dashboard/summary`            | CRM dashboard summary   |
-
-### Technology Stack
-
-* Python
-* FastAPI
-* SQLAlchemy
-* SQLite
-* Pydantic
-* Uvicorn
-* Pytest
-* HTTPX
-
-### Setup and Installation
-
-Navigate to the Module 3 directory:
-
-```bash
-cd Project_Gaurav/Module_3_CRM_Automation
-```
-
-Create a virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-Activate it on Windows:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Configure API Key
-
-For Windows PowerShell:
-
-```powershell
-$env:CRM_API_KEY = "your-secure-api-key"
-```
-
-### Run the Application
-
-```bash
-uvicorn app.main:app --reload --port 8003
-```
-
-Open the API documentation:
-
-```text
-http://127.0.0.1:8003/docs
-```
-
-Protected API endpoints require the `X-API-Key` request header.
-
-### Run Automated Tests
-
-```bash
-pytest -q
-```
-
-**Latest recorded test result:** 6 tests passed.
-
-## Security and Data Management
-
-* API key authentication for protected CRM endpoints.
-* Environment variable-based API key configuration.
-* Input validation using Pydantic.
-* Database operations using SQLAlchemy.
-* Local SQLite database for development.
-* Sensitive configuration and database files excluded through `.gitignore`.
-
-## Project Status
-
-* Module 1: Workflow Automation – Developed as part of the project.
-* Module 2: LinkedIn Relationship Management – Initial deliverables completed.
-* Module 3: CRM Automation – Backend implementation and automated tests completed.
-* Cross-module integration and further validation can be carried out as the next development stage.
-
-## Repository
-
-GitHub: https://github.com/soniimaurya/AdminEase-Solutions
-
-## Author
+## Developer
 
 **Soni Maurya**
-
 B.Tech – Computer Science and Engineering (AI & ML)
 
-GitHub: https://github.com/soniimaurya
+**GitHub:** https://github.com/soniimaurya
